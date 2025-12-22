@@ -36,7 +36,7 @@ export default function GMDashboard() {
         );
     }
 
-    const revenue Data = metrics?.monthly_revenue ? Object.entries(metrics.monthly_revenue).map(([month, value]) => ({
+    const revenueData = metrics?.monthly_revenue ? Object.entries(metrics.monthly_revenue).map(([month, value]) => ({
         month,
         revenue: value
     })) : [];
