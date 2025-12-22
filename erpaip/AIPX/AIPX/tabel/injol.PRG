@@ -1,0 +1,6 @@
+CLOSE DATABASES
+SET EXCLUSIVE ON
+USE jol
+INDEX on ref+rec TAG joli OF jol
+INDEX on jo+rec TAG jolj OF jol
+CLOSE DATABASES

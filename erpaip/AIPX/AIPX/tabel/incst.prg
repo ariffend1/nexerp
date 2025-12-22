@@ -1,0 +1,5 @@
+!dele file CST.cdx
+USE CST
+INDEX on CST TAG CSTi OF CST
+INDEX on des TAG CSTj OF CST
+CLOSE data
