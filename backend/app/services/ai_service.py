@@ -4,11 +4,11 @@ from datetime import datetime, timedelta
 from decimal import Decimal
 from typing import Optional, List
 import uuid
-from ..models.ai_settings import AISettings, AIInsight
-from ..models.sales import SalesOrder
-from ..models.procurement import PurchaseOrder
-from ..models.inventory import Product
-from ..models.ledger import StockLedger
+from app.models.ai_settings import AISettings, AIInsight
+from app.models.sales import SalesOrder
+from app.models.procurement import PurchaseOrder
+from app.models.inventory import Product
+from app.models.ledger import StockLedger
 
 class AIService:
     """AI-powered insights with resource-aware toggling"""

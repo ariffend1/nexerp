@@ -1,5 +1,5 @@
 from sqlalchemy.orm import Session
-from ..models.notifications import Notification, NotificationType, NotificationPriority, ApprovalRequest
+from app.models.notifications import Notification, NotificationType, NotificationPriority, ApprovalRequest
 from datetime import datetime
 import uuid
 

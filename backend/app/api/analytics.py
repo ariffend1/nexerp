@@ -1,8 +1,8 @@
 from fastapi import APIRouter, Depends
 from sqlalchemy.orm import Session
-from ..core.database import get_db
-from ..core.dependencies import get_current_user, AuthUser
-from ..services.analytics_service import AnalyticsService
+from app.core.database import get_db
+from app.core.dependencies import get_current_user, AuthUser
+from app.services.analytics_service import AnalyticsService
 import uuid
 
 router = APIRouter(prefix="/analytics", tags=["analytics"])

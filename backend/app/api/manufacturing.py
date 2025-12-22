@@ -1,8 +1,8 @@
 from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
 from typing import List
-from ..core.database import get_db
-from ..models.manufacturing import JobOrder, JobOrderStatus, ApprovalStatus
+from app.core.database import get_db
+from app.models.manufacturing import JobOrder, JobOrderStatus, ApprovalStatus
 from pydantic import BaseModel
 import uuid
 from datetime import datetime

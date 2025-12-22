@@ -2,7 +2,7 @@ import uuid
 from sqlalchemy import Column, String, Integer, ForeignKey
 from sqlalchemy.dialects.postgresql import UUID
 from sqlalchemy.orm import Session
-from ..core.database import Base
+from app.core.database import Base
 
 class DocumentSequence(Base):
     __tablename__ = "document_sequences"

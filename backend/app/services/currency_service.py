@@ -2,7 +2,7 @@ from sqlalchemy.orm import Session
 from sqlalchemy import and_
 from datetime import datetime, date
 from decimal import Decimal
-from ..models.currency_tax import Currency, ExchangeRate
+from app.models.currency_tax import Currency, ExchangeRate
 import uuid
 import httpx
 from typing import Optional

@@ -1,8 +1,8 @@
 from fastapi import APIRouter, Depends
 from sqlalchemy.orm import Session
-from ..core.database import get_db
-from ..core.dependencies import get_current_user, AuthUser
-from ..services.advanced_inventory_service import AdvancedInventoryService
+from app.core.database import get_db
+from app.core.dependencies import get_current_user, AuthUser
+from app.services.advanced_inventory_service import AdvancedInventoryService
 from pydantic import BaseModel
 from datetime import date
 from typing import Optional

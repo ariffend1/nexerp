@@ -4,7 +4,7 @@ from sqlalchemy import Column, String, DateTime, ForeignKey, Boolean, Numeric, D
 from sqlalchemy.dialects.postgresql import UUID
 from sqlalchemy.sql import func
 from decimal import Decimal
-from ..core.database import Base
+from app.core.database import Base
 
 class Currency(Base):
     """Master data for supported currencies"""

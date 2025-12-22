@@ -1,6 +1,6 @@
 from sqlalchemy.orm import Session
 from sqlalchemy import text
-from ..models.reporting import CustomReport, ScheduledReport, ReportExecution
+from app.models.reporting import CustomReport, ScheduledReport, ReportExecution
 from typing import List, Dict, Optional
 import uuid
 import pandas as pd

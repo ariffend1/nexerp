@@ -2,7 +2,7 @@ import uuid
 from sqlalchemy import Column, String, DateTime, ForeignKey, Date, Integer
 from sqlalchemy.dialects.postgresql import UUID
 from sqlalchemy.sql import func
-from ..core.database import Base
+from app.core.database import Base
 
 class SerialNumber(Base):
     """Individual item tracking with serial numbers"""

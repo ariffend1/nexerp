@@ -2,7 +2,7 @@ from sqlalchemy.orm import Session
 from sqlalchemy import and_
 from decimal import Decimal
 from datetime import date
-from ..models.currency_tax import TaxRate, TaxTransaction, TaxType
+from app.models.currency_tax import TaxRate, TaxTransaction, TaxType
 import uuid
 
 class TaxService:

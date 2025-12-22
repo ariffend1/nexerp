@@ -3,7 +3,7 @@ import enum
 from sqlalchemy import Column, String, DateTime, ForeignKey, Boolean, Integer, JSON, Text
 from sqlalchemy.dialects.postgresql import UUID
 from sqlalchemy.sql import func
-from ..core.database import Base
+from app.core.database import Base
 
 class WorkflowStatus(str, enum.Enum):
     DRAFT = "draft"

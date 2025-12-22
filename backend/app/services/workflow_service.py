@@ -1,7 +1,7 @@
 from sqlalchemy.orm import Session
 from sqlalchemy import and_
 from datetime import datetime
-from ..models.workflow import Workflow, WorkflowNode, WorkflowExecution, ApprovalRequest
+from app.models.workflow import Workflow, WorkflowNode, WorkflowExecution, ApprovalRequest
 from typing import Dict, List, Optional
 import uuid
 import json

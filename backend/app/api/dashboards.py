@@ -1,9 +1,9 @@
 from fastapi import APIRouter, Depends
 from sqlalchemy.orm import Session
-from ..core.database import get_db
-from ..core.dependencies import get_current_user, AuthUser
-from ..services.dashboard_analytics import DashboardAnalytics
-from ..models.rbac import UserRole
+from app.core.database import get_db
+from app.core.dependencies import get_current_user, AuthUser
+from app.services.dashboard_analytics import DashboardAnalytics
+from app.models.rbac import UserRole
 
 router = APIRouter(prefix="/dashboards", tags=["dashboards"])
 

@@ -1,9 +1,9 @@
 from fastapi import APIRouter, Depends, HTTPException, status
 from sqlalchemy.orm import Session
 from typing import List
-from ..core.database import get_db
-from ..core.dependencies import get_current_user, AuthUser
-from ..models.inventory import Product, ProductType, ValuationMethod
+from app.core.database import get_db
+from app.core.dependencies import get_current_user, AuthUser
+from app.models.inventory import Product, ProductType, ValuationMethod
 from pydantic import BaseModel
 import uuid
 

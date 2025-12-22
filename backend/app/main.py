@@ -1,8 +1,8 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from .api import auth, products, manufacturing, procurement, sales, hr, finance, analytics, import_export, notifications, dashboards, currency_tax, ai, advanced_inventory, realtime, workflows, reports
-from .core.database import engine, Base
-from .models import auth as auth_models, inventory, accounting, ledger, manufacturing, procurement, sales, hr, journals, finance, notifications, rbac, currency_tax, ai_settings, advanced_inventory, workflow, reporting # Import metadata
+from app.api import auth, products, manufacturing, procurement, sales, hr, finance, analytics, import_export, notifications, dashboards, currency_tax, ai, advanced_inventory, realtime, workflows, reports
+from app.core.database import engine, Base
+from app.models import auth as auth_models, inventory, accounting, ledger, manufacturing, procurement, sales, hr, journals, finance, notifications, rbac, currency_tax, ai_settings, advanced_inventory, workflow, reporting # Import metadata
 
 # Initialize Database
 Base.metadata.create_all(bind=engine)

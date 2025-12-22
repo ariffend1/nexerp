@@ -1,9 +1,9 @@
 from fastapi import APIRouter, Depends
 from sqlalchemy.orm import Session
-from ..core.database import get_db
-from ..core.dependencies import get_current_user, AuthUser
-from ..services.workflow_service import WorkflowEngine
-from ..models.workflow import Workflow, WorkflowExecution
+from app.core.database import get_db
+from app.core.dependencies import get_current_user, AuthUser
+from app.services.workflow_service import WorkflowEngine
+from app.models.workflow import Workflow, WorkflowExecution
 from pydantic import BaseModel
 from typing import Optional, Dict
 import uuid

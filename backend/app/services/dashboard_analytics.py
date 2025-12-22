@@ -1,15 +1,15 @@
 from sqlalchemy.orm import Session
 from sqlalchemy import func, extract
 from datetime import datetime, timedelta
-from ..models.sales import SalesOrder
-from ..models.procurement import PurchaseOrder
-from ..models.manufacturing import JobOrder
-from ..models.ledger import StockLedger
-from ..models.finance import CashTransaction
-from ..models.hr import Employee, Department
-from ..models.auth import User
-from ..models.accounting import Partner
-from ..models.journals import Journal
+from app.models.sales import SalesOrder
+from app.models.procurement import PurchaseOrder
+from app.models.manufacturing import JobOrder
+from app.models.ledger import StockLedger
+from app.models.finance import CashTransaction
+from app.models.hr import Employee, Department
+from app.models.auth import User
+from app.models.accounting import Partner
+from app.models.journals import Journal
 import uuid
 
 class DashboardAnalytics:

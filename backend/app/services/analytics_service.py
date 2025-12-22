@@ -1,11 +1,11 @@
 from sqlalchemy.orm import Session
 from sqlalchemy import func, extract
 from datetime import datetime, timedelta
-from ..models.sales import SalesOrder
-from ..models.procurement import PurchaseOrder
-from ..models.manufacturing import JobOrder
-from ..models.ledger import StockLedger
-from ..models.finance import CashTransaction
+from app.models.sales import SalesOrder
+from app.models.procurement import PurchaseOrder
+from app.models.manufacturing import JobOrder
+from app.models.ledger import StockLedger
+from app.models.finance import CashTransaction
 import uuid
 
 class AnalyticsService:
@@ -76,8 +76,8 @@ class AnalyticsService:
     @staticmethod
     def get_top_products(db: Session, workspace_id: uuid.UUID, limit: int = 10):
         """Get top selling products"""
-        from ..models.sales import SOLine
-        from ..models.inventory import Product
+        from app.models.sales import SOLine
+        from app.models.inventory import Product
         
         top_products = db.query(
             Product.name,

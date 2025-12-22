@@ -2,9 +2,9 @@ from fastapi import APIRouter, Depends, HTTPException, status
 from fastapi.security import OAuth2PasswordRequestForm
 from sqlalchemy.orm import Session
 from datetime import timedelta
-from ..core.database import get_db
-from ..core.security import create_access_token, get_password_hash, verify_password
-from ..models.auth import User, Workspace
+from app.core.database import get_db
+from app.core.security import create_access_token, get_password_hash, verify_password
+from app.models.auth import User, Workspace
 from pydantic import BaseModel, EmailStr
 
 router = APIRouter(prefix="/auth", tags=["auth"])

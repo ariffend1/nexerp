@@ -1,10 +1,10 @@
 from fastapi import APIRouter, Depends, UploadFile, File
 from fastapi.responses import StreamingResponse
 from sqlalchemy.orm import Session
-from ..core.database import get_db
-from ..services.excel_service import ExcelService
-from ..models.inventory import Product
-from ..models.accounting import Partner
+from app.core.database import get_db
+from app.services.excel_service import ExcelService
+from app.models.inventory import Product
+from app.models.accounting import Partner
 import uuid
 
 router = APIRouter(prefix="/import-export", tags=["import-export"])

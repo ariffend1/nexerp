@@ -2,7 +2,7 @@ import uuid
 from sqlalchemy import Column, String, DateTime, ForeignKey, Boolean, JSON, Text
 from sqlalchemy.dialects.postgresql import UUID
 from sqlalchemy.sql import func
-from ..core.database import Base
+from app.core.database import Base
 
 class CustomReport(Base):
     """User-defined custom reports"""

@@ -1,11 +1,11 @@
 from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
 from typing import List
-from ..core.database import get_db
-from ..models.finance import CashTransaction, BankTransaction, CashTransactionType
-from ..models.accounting import CashAccount, BankAccount
-from ..services.sequence_service import SequenceService
-from ..services.journal_service import JournalEngine
+from app.core.database import get_db
+from app.models.finance import CashTransaction, BankTransaction, CashTransactionType
+from app.models.accounting import CashAccount, BankAccount
+from app.services.sequence_service import SequenceService
+from app.services.journal_service import JournalEngine
 from pydantic import BaseModel
 import uuid
 

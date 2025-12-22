@@ -1,9 +1,9 @@
 from fastapi import APIRouter, Depends
 from sqlalchemy.orm import Session
-from ..core.database import get_db
-from ..core.dependencies import get_current_user, AuthUser
-from ..services.ai_service import AIService
-from ..models.ai_settings import AISettings
+from app.core.database import get_db
+from app.core.dependencies import get_current_user, AuthUser
+from app.services.ai_service import AIService
+from app.models.ai_settings import AISettings
 from pydantic import BaseModel
 
 router = APIRouter(prefix="/ai", tags=["ai"])
@@ -125,7 +125,7 @@ async def get_ai_insights(
     user: AuthUser = Depends(get_current_user)
 ):
     """Get all AI-generated insights"""
-    from ..models.ai_settings import AIInsight
+    from app.models.ai_settings import AIInsight
     
     insights = db.query(AIInsight).filter(
         AIInsight.workspace_id == user.workspace_id,

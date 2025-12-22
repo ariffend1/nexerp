@@ -1,10 +1,10 @@
 from fastapi import APIRouter, Depends, Response
 from fastapi.responses import StreamingResponse
 from sqlalchemy.orm import Session
-from ..core.database import get_db
-from ..core.dependencies import get_current_user, AuthUser
-from ..services.reporting_service import ReportingService
-from ..models.reporting import CustomReport
+from app.core.database import get_db
+from app.core.dependencies import get_current_user, AuthUser
+from app.services.reporting_service import ReportingService
+from app.models.reporting import CustomReport
 from pydantic import BaseModel
 from typing import List, Dict, Optional
 import uuid
