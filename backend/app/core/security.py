@@ -1,9 +1,8 @@
 import os
 from datetime import datetime, timedelta
-from typing import Optional, Union
+from typing import Optional
+import bcrypt
 from jose import JWTError, jwt
-from passlib.context import CryptContext
-from pydantic import BaseModel
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -13,14 +12,23 @@ SECRET_KEY = os.getenv("SECRET_KEY", "your-super-secret-key-for-development")
 ALGORITHM = "HS256"
 ACCESS_TOKEN_EXPIRE_MINUTES = 60 * 24 # 1 day
 
-pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
+def verify_password(plain_password: str, hashed_password: str) -> bool:
+    """Verify password using bcrypt directly"""
+    try:
+        # Ensure both are bytes
+        password_bytes = plain_password.encode('utf-8')
+        hash_bytes = hashed_password.encode('utf-8')
+        return bcrypt.checkpw(password_bytes, hash_bytes)
+    except Exception as e:
+        print(f"Password verification error: {e}")
+        return False
 
-def verify_password(plain_password, hashed_password):
-    return pwd_context.verify(plain_password, hashed_password)
-
-def get_password_hash(password):
-    hashed = pwd_context.hash(password)
-    return hashed
+def get_password_hash(password: str) -> str:
+    """Hash password using bcrypt directly"""
+    password_bytes = password.encode('utf-8')
+    salt = bcrypt.gensalt(rounds=12)
+    hashed = bcrypt.hashpw(password_bytes, salt)
+    return hashed.decode('utf-8')
 
 def decode_token(token: str):
     """Decode JWT token and return payload"""
