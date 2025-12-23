@@ -1,0 +1,143 @@
+# 📝 NexERP Development History
+
+**Tanggal:** 22-23 Desember 2024
+**Tujuan:** Deploy NexERP di Proxmox dan Local Testing
+
+---
+
+## 🎯 Objective Utama
+
+Deploy NexERP (ERP Manufacturing) di Proxmox LXC container, dengan local testing di Docker Desktop Windows.
+
+---
+
+## 📅 Timeline & Progress
+
+### Day 1 (22 Dec 2024)
+
+1. **Fix Backend Imports** - Konversi 47 file dari relative ke absolute imports
+2. **Fix Frontend Dockerfile** - Tambah bash, set WORKDIR, expose port
+3. **Fix Frontend Syntax** - Typo `revenue Data` → `revenueData`
+4. **Add email-validator** - Dependency backend
+5. **Push ke GitHub**
+
+### Day 2 (23 Dec 2024)
+
+1. **Fix products.py** - Syntax error kurung `]` seharusnya `)`
+2. **Fix duplicate tables** - Journal dan ApprovalRequest
+3. **Fix missing imports** - Integer, Boolean di beberapa model files
+4. **Disable advanced modules** (AI, Workflow, Advanced Inventory, Realtime)
+5. **Fix import name collision** - Alias untuk api vs models
+6. **Fix CORS** - Tambah localhost:3001
+7. **Fix password verification** - Ganti passlib → bcrypt langsung
+8. **LOGIN BERHASIL!** ✅
+
+---
+
+## 🔧 Perubahan Teknis Penting
+
+### 1. main.py - Disabled Modules
+
+```python
+# API yang dinonaktifkan:
+# from app.api import ai, advanced_inventory, realtime, workflows
+
+# Model yang dinonaktifkan:
+# from app.models import ai_settings, advanced_inventory, workflow
+```
+
+### 2. security.py - BCrypt Fix
+
+```python
+import bcrypt
+
+def verify_password(plain_password: str, hashed_password: str) -> bool:
+    password_bytes = plain_password.encode('utf-8')
+    hash_bytes = hashed_password.encode('utf-8')
+    return bcrypt.checkpw(password_bytes, hash_bytes)
+```
+
+### 3. docker-compose.yml
+
+- Frontend port: `3001:3000` (avoid conflict)
+- API URL: `http://localhost:8000/api/v1`
+
+---
+
+## 📁 File-File yang Dimodifikasi
+
+| File | Perubahan |
+|------|-----------|
+| `backend/app/main.py` | Disable modules, fix imports, add CORS |
+| `backend/app/core/security.py` | Replace passlib with bcrypt |
+| `backend/app/api/products.py` | Fix syntax error |
+| `backend/app/models/accounting.py` | Remove duplicate Journal |
+| `backend/app/models/notifications.py` | Remove duplicate ApprovalRequest |
+| `backend/app/services/journal_service.py` | Fix import path |
+| `backend/app/services/notification_service.py` | Fix import path |
+| `backend/app/api/notifications.py` | Fix import path |
+| `backend/app/models/*.py` | Add missing Integer/Boolean imports |
+| `docker-compose.yml` | Change frontend port to 3001 |
+
+---
+
+## 🔐 Admin Credentials
+
+- **Email:** <admin@nexerp.com>
+- **Password:** admin123
+
+### Setup Password Command
+
+```bash
+docker-compose exec -T backend python -c "from app.core.database import SessionLocal; from app.models.auth import User; import bcrypt; db = SessionLocal(); password = 'admin123'.encode('utf-8'); salt = bcrypt.gensalt(rounds=12); hashed = bcrypt.hashpw(password, salt).decode('utf-8'); user = db.query(User).filter(User.email=='admin@nexerp.com').first(); user.hashed_password = hashed if user else None; db.commit() if user else None; db.close()"
+```
+
+---
+
+## 🚀 Quick Start
+
+```bash
+# Clone & Start
+git clone https://github.com/ariffend1/nexerp.git
+cd nexerp
+docker-compose up -d
+
+# Wait 30 seconds, then setup password (command above)
+
+# Access
+# Frontend: http://localhost:3001
+# API Docs: http://localhost:8000/docs
+```
+
+---
+
+## 🎯 Next Steps
+
+1. [ ] Deploy ke Proxmox (IP: 192.168.5.14)
+2. [ ] Aktifkan modul advanced satu per satu (jika dibutuhkan)
+3. [ ] Test fitur core (Products, Manufacturing, Sales, Finance)
+4. [ ] Implement missing features
+
+---
+
+## 🔴 Known Issues / Disabled Features
+
+### Modul yang Dinonaktifkan
+
+1. **AI Module** - Predictive analytics, anomaly detection
+2. **Advanced Inventory** - Serial numbers, barcodes, batch/lot
+3. **Realtime** - WebSocket collaboration
+4. **Workflows** - Visual workflow designer
+
+### Cara Mengaktifkan
+
+Edit `backend/app/main.py`, uncomment import dan router lines untuk modul yang diinginkan.
+
+---
+
+## 📞 Environment Info
+
+- **OS Development:** Windows + Docker Desktop
+- **Target Deployment:** Proxmox LXC (192.168.5.14)
+- **Tech Stack:** FastAPI (Python) + Next.js + PostgreSQL + Redis
+- **Repository:** <https://github.com/ariffend1/nexerp.git>
