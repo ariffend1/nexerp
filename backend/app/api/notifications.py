@@ -2,7 +2,8 @@ from fastapi import APIRouter, Depends
 from sqlalchemy.orm import Session
 from typing import List
 from app.core.database import get_db
-from app.models.notifications import Notification, ApprovalRequest
+from app.models.notifications import Notification
+from app.models.workflow import ApprovalRequest
 from app.services.notification_service import NotificationService
 from pydantic import BaseModel
 import uuid

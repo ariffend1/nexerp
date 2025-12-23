@@ -32,7 +32,7 @@ async def list_products(db: Session = Depends(get_db), user: AuthUser = Depends(
     products = db.query(Product).filter(Product.workspace_id == user.workspace_id).all()
     return products
 
-@router.post("/", response_model=ProductOut])
+@router.post("/", response_model=ProductOut)
 async def create_product(product_in: ProductCreate, db: Session = Depends(get_db), user: AuthUser = Depends(get_current_user)):
     db_product = Product(**product_in.dict(), workspace_id=user.workspace_id)
     db.add(db_product)

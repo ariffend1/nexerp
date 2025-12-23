@@ -33,17 +33,3 @@ class Notification(Base):
     link = Column(String, nullable=True)  # URL to related item
     is_read = Column(Boolean, default=False)
     created_at = Column(DateTime(timezone=True), server_default=func.now())
-
-class ApprovalRequest(Base):
-    __tablename__ = "approval_requests"
-
-    id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
-    workspace_id = Column(UUID(as_uuid=True), ForeignKey("workspaces.id"))
-    document_type = Column(String)  # 'PO', 'SO', 'SPK', 'JOURNAL'
-    document_id = Column(UUID(as_uuid=True))
-    requested_by = Column(UUID(as_uuid=True), ForeignKey("users.id"))
-    approver_id = Column(UUID(as_uuid=True), ForeignKey("users.id"))
-    status = Column(String, default="pending")  # pending, approved, rejected
-    comments = Column(Text, nullable=True)
-    requested_at = Column(DateTime(timezone=True), server_default=func.now())
-    responded_at = Column(DateTime(timezone=True), nullable=True)

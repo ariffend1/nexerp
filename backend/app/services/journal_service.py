@@ -1,5 +1,6 @@
 from sqlalchemy.orm import Session
-from app.models.accounting import Journal, JournalItem, COA
+from app.models.journals import Journal, JournalItem
+from app.models.accounting import COA
 from uuid import UUID
 from datetime import date
 
