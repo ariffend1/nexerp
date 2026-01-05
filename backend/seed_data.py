@@ -1,5 +1,6 @@
 from app.core.database import SessionLocal, engine, Base
 from app.models.auth import Workspace, User
+from app.core.security import get_password_hash
 
 def seed():
     print("Creating database tables...")
@@ -19,9 +20,10 @@ def seed():
             ws_id = str(ws.id)
             print("Workspace 'Default' already exists.")
 
-        # 2. Create Admin User
-        # Hash for 'admin123'
-        admin_hash = "$2b$12$LQv3c1yqBWVHxkd0LHAkCOYz6TtxMQJqhN8/X4.VTEMbOAAGgP9nK"
+        # 2. Create Admin User - hash password at runtime
+        admin_password = "admin123"
+        admin_hash = get_password_hash(admin_password)
+        print(f"Generated password hash for 'admin123'")
         
         existing_user = db.query(User).filter(User.email=='admin@nexerp.com').first()
         if not existing_user:
@@ -38,7 +40,7 @@ def seed():
             db.commit()
             print("User 'admin@nexerp.com' created.")
         else:
-            # Update password just in case
+            # Update password
             existing_user.hashed_password = admin_hash
             db.commit()
             print("User 'admin@nexerp.com' updated with correct password.")
