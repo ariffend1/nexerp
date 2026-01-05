@@ -27,7 +27,7 @@ services:
     volumes:
       - ./backend:/app
     ports:
-      - "8000:8000"
+      - "8001:8000"
     environment:
       - DATABASE_URL=postgresql://nexerp:nexerp_password@db/nexerp_db
       - REDIS_URL=redis://redis:6379
