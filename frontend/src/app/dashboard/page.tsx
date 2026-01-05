@@ -77,7 +77,7 @@ export default function DashboardPage() {
                 <div className="bg-[#1e293b] border border-slate-800 rounded-2xl p-6">
                     <h3 className="text-lg font-semibold text-white mb-6">Quick Actions</h3>
                     <div className="grid grid-cols-1 gap-3">
-                        <button className="w-full text-left p-4 bg-slate-900 hover:bg-slate-800 rounded-xl border border-slate-800 transition-colors flex items-center gap-3">
+                        <a href="/dashboard/manufacturing" className="w-full text-left p-4 bg-slate-900 hover:bg-slate-800 rounded-xl border border-slate-800 transition-colors flex items-center gap-3">
                             <div className="p-2 bg-blue-500/10 rounded-lg text-blue-400">
                                 <Package className="w-5 h-5" />
                             </div>
@@ -85,8 +85,8 @@ export default function DashboardPage() {
                                 <p className="text-sm font-medium text-white">New Production Order</p>
                                 <p className="text-xs text-slate-500">Standard SPK creation</p>
                             </div>
-                        </button>
-                        <button className="w-full text-left p-4 bg-slate-900 hover:bg-slate-800 rounded-xl border border-slate-800 transition-colors flex items-center gap-3">
+                        </a>
+                        <a href="/dashboard/procurement" className="w-full text-left p-4 bg-slate-900 hover:bg-slate-800 rounded-xl border border-slate-800 transition-colors flex items-center gap-3">
                             <div className="p-2 bg-emerald-500/10 rounded-lg text-emerald-400">
                                 <ShoppingCart className="w-5 h-5" />
                             </div>
@@ -94,8 +94,8 @@ export default function DashboardPage() {
                                 <p className="text-sm font-medium text-white">Create Purchase Order</p>
                                 <p className="text-xs text-slate-500">Inventory replenishment</p>
                             </div>
-                        </button>
-                        <button className="w-full text-left p-4 bg-slate-900 hover:bg-slate-800 rounded-xl border border-slate-800 transition-colors flex items-center gap-3">
+                        </a>
+                        <a href="/dashboard/projects" className="w-full text-left p-4 bg-slate-900 hover:bg-slate-800 rounded-xl border border-slate-800 transition-colors flex items-center gap-3">
                             <div className="p-2 bg-indigo-500/10 rounded-lg text-indigo-400">
                                 <Briefcase className="w-5 h-5" />
                             </div>
@@ -103,7 +103,7 @@ export default function DashboardPage() {
                                 <p className="text-sm font-medium text-white">New Service Project</p>
                                 <p className="text-xs text-slate-500">Task & Timeline tracking</p>
                             </div>
-                        </button>
+                        </a>
                     </div>
                 </div>
             </div>

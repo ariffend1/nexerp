@@ -48,7 +48,10 @@ export default function ManufacturingPage() {
                     <h2 className="text-2xl font-bold text-white">Manufacturing Orders (SPK)</h2>
                     <p className="text-slate-400 text-sm">Control your production floor and scheduling</p>
                 </div>
-                <button className="bg-blue-600 hover:bg-blue-500 text-white px-4 py-2 rounded-lg flex items-center gap-2 transition-all shadow-lg shadow-blue-500/20">
+                <button
+                    onClick={() => alert('Create SPK - Coming Soon')}
+                    className="bg-blue-600 hover:bg-blue-500 text-white px-4 py-2 rounded-lg flex items-center gap-2 transition-all shadow-lg shadow-blue-500/20"
+                >
                     <Plus className="w-4 h-4" />
                     Create SPK
                 </button>
