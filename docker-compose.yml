@@ -24,13 +24,13 @@ services:
   backend:
     build: ./backend
     container_name: nexerp-backend
-    volumes:
-      - ./backend:/app
+    restart: always
     ports:
       - "8001:8000"
     environment:
       - DATABASE_URL=postgresql://nexerp:nexerp_password@db/nexerp_db
       - REDIS_URL=redis://redis:6379
+      - SECRET_KEY=your-secret-key-change-in-production
     depends_on:
       - db
       - redis
@@ -38,14 +38,11 @@ services:
   frontend:
     build: ./frontend
     container_name: nexerp-frontend
-    volumes:
-      - ./frontend:/app
-      - /app/node_modules
-      - /app/.next
+    restart: always
     ports:
       - "3001:3000"
     environment:
-      - NEXT_PUBLIC_API_URL=http://localhost:8000/api/v1
+      - NEXT_PUBLIC_API_URL=http://192.168.5.13:8001/api/v1
     depends_on:
       - backend
 
