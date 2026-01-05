@@ -46,7 +46,12 @@ origins = [
     "http://localhost:3000",
     "http://localhost:3001",
     "http://localhost:8000",
-    "http://192.168.5.14:3000",  # Proxmox
+    "http://localhost:8001",
+    "http://192.168.5.13:3000",  # Proxmox Production
+    "http://192.168.5.13:3001",
+    "http://192.168.5.13:8000",
+    "http://192.168.5.13:8001",
+    "http://192.168.5.14:3000",  # Proxmox Alt
     "http://192.168.5.14:8000",
 ]
 
